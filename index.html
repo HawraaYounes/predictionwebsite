@@ -47,9 +47,9 @@ function  fetchNationality(){
   fetch('https://api.nationalize.io/?name=mohamad')
     .then(response => response.json())
     .then(data => {
-      console.log(data.country);
       for(let i=0;i<data.country.length;i++){
-        nationality.innerHTML = `<p>"${data.country[i].country_id}"</p>`;
+        nationality.innerHTML += `<p>"${data.country[i].country_id}"</p>`;
+        console.log(data.country[i].country_id);
     }
   });
 }

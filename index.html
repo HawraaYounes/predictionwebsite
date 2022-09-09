@@ -4,11 +4,13 @@
 <div id="dog-img"></div>
 <div>
   <div id="gender"></p></div>
+  <div id="age"></p></div>
 </div>
 <button id="btn">click</button>
 <script>
 var dogImage = document.getElementById('dog-img');
 var gender = document.getElementById('gender');
+var age = document.getElementById('age');
 var btn = document.getElementById('btn');
 
 window.addEventListener('load', fetchDogImage);
@@ -27,12 +29,21 @@ function fetchGender(){
   fetch('https://api.genderize.io?name=rio')
     .then(response => response.json())
     .then(data => {
-      gender.innerHTML = `<p>"${data.gender}"<p/>`;
+      gender.innerHTML = `<p>"${data.gender}"</p>`;
   });
 }
+
+function fetchAge(){
+  fetch('https://api.agify.io/?name=nour')
+    .then(response => response.json())
+    .then(data => {
+      age.innerHTML = `<p>"${data.age}"</p>`;
+  });
+}
+
 function fetchApis(){
   fetchGender();
-  //fetchAge();
+  fetchAge();
   //fetchNationality();
 }
 

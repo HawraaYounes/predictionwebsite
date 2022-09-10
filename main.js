@@ -1,10 +1,18 @@
 var dogImage = document.getElementById('dog-img');
-var name = document.getElementById('name');
+var name_input = document.getElementById('name_input');
+var status = document.getElementById('status');
 var gender = document.getElementById('gender');
 var age = document.getElementById('age');
 var nationality = document.getElementById('nationality');
 var btn = document.getElementById('btn');
-
+var name_value;
+if (name_input!= null) {
+   name_value = name_input.value;
+}
+else{
+   status.innerHTML="Enter your name first!"; 
+}
+console.log("helllo")
 window.addEventListener('load', fetchDogImage);//Display random dog image once the page is loaded.
 btn.addEventListener('click', fetchApis);//Once the button is clicked, the function fetchApis() is called
 
@@ -43,8 +51,15 @@ function  fetchNationality(){//function that nationality api, and add it to the 
   });
 }
 
-function fetchApis(){//function that calls the three previous functions
-  fetchGender();
-  fetchAge();
-  fetchNationality();
+function fetchApis(){//function that calls the three previous functions and dispalys the name
+    if (name_input!= null) {
+        name_value = name_input.value;
+        status.innerHTML=name_value;
+        fetchGender();
+        fetchAge();
+        fetchNationality();
+     }
+     else{
+        status.innerHTML="Enter your name first!"; 
+     }
 }

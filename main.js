@@ -48,17 +48,16 @@ function  fetchNationality(){//function that nationality api, and add it to the 
 
 function fetchApis(){//function that calls the three previous functions and dispalys the name
     if (nameInput.value== "") {
-        myName.innerHTML="Enter your name first!";
-        
+        myName.innerHTML="Enter your name first!"; 
      }
      else{
-        myName.innerHTML='';
+        myName.innerHTML='';//Empty text before fetching APIs
         gender.innerHTML='';
         age.innerHTML='';
         nationality.innerHTML='';
-        nameValue = nameInput.value;
+        nameValue = nameInput.value;//Displaying name 
         myName.innerHTML=nameValue;
-        fetchGender();
+        fetchGender();//Start Fetching APIs
         fetchAge();
         fetchNationality();
      }

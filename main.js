@@ -23,7 +23,7 @@ function fetchGender(){//function that fetch predicted gender api, and add it to
   fetch('https://api.genderize.io?name='+nameValue)
     .then(response => response.json())
     .then(data => {
-      gender.innerHTML = `<p>"${data.gender}"</p>`;
+      gender.innerHTML = `<p>Gender: "${data.gender}"</p>`;
   });
 }
 
@@ -31,7 +31,7 @@ function fetchAge(){//function that fetch age api, and add it to the page
   fetch('https://api.agify.io/?name='+nameValue)
     .then(response => response.json())
     .then(data => {
-      age.innerHTML = `<p>I'm "${data.age}" years old.</p>`;
+      age.innerHTML = `<p>Age: "${data.age}" years old.</p>`;
   });
 }
 
@@ -39,8 +39,9 @@ function  fetchNationality(){//function that nationality api, and add it to the 
   fetch('https://api.nationalize.io/?name='+nameValue)
     .then(response => response.json())
     .then(data => {
+      nationality.innerHTML += `<span>"Nationality: "</span>`;
       for(let i=0;i<2;i++){
-        nationality.innerHTML += `<p>"${data.country[i].country_id}"</p>`;
+        nationality.innerHTML += `<span>" ${data.country[i].country_id}"</span>`;
     }
   });
 }

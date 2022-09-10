@@ -20,5 +20,5 @@
     width: 40%;
     padding-top:  5%;
     padding-left: 10%;
-    background-color:rgba(159, 125, 81, 0.5);
+    background: linear-gradient(to bottom, #aa8057 0%, #cab198 100%);
 }

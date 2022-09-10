@@ -51,11 +51,14 @@ function fetchApis(){//function that calls the three previous functions and disp
         
      }
      else{
+        myName.innerHTML='';
+        gender.innerHTML='';
+        age.innerHTML='';
+        nationality.innerHTML='';
         nameValue = nameInput.value;
         myName.innerHTML=nameValue;
         fetchGender();
         fetchAge();
         fetchNationality();
-
      }
 }

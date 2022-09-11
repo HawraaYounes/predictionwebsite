@@ -69,16 +69,22 @@ function fetchApis(){//function that calls the three previous functions and disp
 /////Bonus
 var bored= document.getElementById('bored');
 var activity= document.getElementById('activity');
+var ip=document.getElementById("ip");
 
 bored.addEventListener("click",giveActivity);
 
-function giveActivity(){
-  axios({
-    method: 'post',
-    url: ' https://www.boredapi.com/api/activity',
-  })
-    .then(function (response) {
-      console.log(response.activity);
-      activity.innerHTML = `<p>Activity: "${response.activity}" .</p>`;
-    });
+function giveActivity(){//fetch activity api with axios
+  axios.get('https://www.boredapi.com/api/activity')
+  .then(res =>
+    activity.innerHTML += `<p>Activity: "${res.data.activity}".</p>`
+    );
 }
+
+function displayIP(){//fetch machine ip api with axios
+  axios.get('https://api.ipify.org/?format=json')
+  .then(res =>
+    ip.innerHTML += `<h4>Machine IP: "${res.data.ip}".</h4>`
+    );
+}
+
+displayIP();//display machine ip

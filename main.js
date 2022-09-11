@@ -1,3 +1,5 @@
+
+
 var dogImage = document.getElementById('dog-img');
 var nameInput = document.getElementById('name_input');
 var myName = document.getElementById('name');
@@ -5,6 +7,7 @@ var gender = document.getElementById('gender');
 var age = document.getElementById('age');
 var nationality = document.getElementById('nationality');
 var btn = document.getElementById('btn');
+
 var nameValue;
 
 window.addEventListener('load', fetchDogImage);//Display random dog image once the page is loaded.
@@ -61,4 +64,21 @@ function fetchApis(){//function that calls the three previous functions and disp
         fetchAge();
         fetchNationality();
      }
+}
+
+/////Bonus
+var bored= document.getElementById('bored');
+var activity= document.getElementById('activity');
+
+bored.addEventListener("click",giveActivity);
+
+function giveActivity(){
+  axios({
+    method: 'post',
+    url: ' https://www.boredapi.com/api/activity',
+  })
+    .then(function (response) {
+      console.log(response.activity);
+      activity.innerHTML = `<p>Activity: "${response.activity}" .</p>`;
+    });
 }
